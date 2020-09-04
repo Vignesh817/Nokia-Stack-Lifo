@@ -6,23 +6,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter
 @Setter
 @Entity
-
-/**
- * Instantiates a new maria request entity.
- *
- * @param id the id
- * @param pushedValue the pushed value
- * @param popedValue the poped value
- */
-@AllArgsConstructor
 
 /**
  * Instantiates a new maria request entity.

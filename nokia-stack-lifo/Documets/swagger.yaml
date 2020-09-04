@@ -1,0 +1,68 @@
+swagger: '2.0'
+info:
+  description: >-
+    This is a documentation for the stack LIFO implementation using spring boot microservices REST API
+  version: 1.0.0
+  title: Stack Implementation
+host: localhost:8080
+basePath: /nokia-stack-lifo
+tags:
+  - name: Stack (LIFO)
+    description: Push or pop the data into an int array using REST API
+schemes:
+  - http
+paths:
+  /push:
+    post:
+      tags:
+        - push
+      summary: Add a new int value into the stack store
+      description: Push an int value and specify Db Name where it has to be stored using a json body
+      operationId: push
+      consumes:
+        - application/json
+      produces:
+        - string
+      parameters:
+        - in: body
+          name : JsonBody
+          description: Specify the int value that has to be stored into an Integer array and specify the db name(Maria/Postgre) where it has to be persistently stored
+          required: true
+          schema:
+            $ref: '#/definitions/jsonBody'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: string
+        '500':
+          description: Internal Server Error
+    
+  /pop:
+    get:
+      tags:
+        - pop
+      summary: Pops the last stack
+      description: Pop the last value which is stored in the stack
+      operationId: pop
+      produces:
+        - string
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: string
+        '500':
+          description: Internal Server Error
+
+definitions:
+  jsonBody:
+    type: object
+    properties:
+      Value:
+        type: integer
+        format: int32
+      SpecifyDb:
+        type: string
+        format: Maria/Postgre
+  
