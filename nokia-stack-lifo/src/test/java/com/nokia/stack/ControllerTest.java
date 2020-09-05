@@ -9,16 +9,24 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.boot.test.context.SpringBootTest;
 
+/**
+ * The Class ControllerTest.
+ */
 @RunWith(MockitoJUnitRunner.class)
 @SpringBootTest
 public class ControllerTest {
 
+  /** The controller. */
   @InjectMocks
   private Controller controller;
 
+  /** The stack. */
   @Mock
   private Stack stack;
 
+  /**
+   * Test push.
+   */
   @Test
   public void testPush() {
     String body = "{\r\n" +
@@ -28,6 +36,9 @@ public class ControllerTest {
     controller.pushValue(body);
   }
 
+  /**
+   * Test pop.
+   */
   @Test
   public void testPop() {
     controller.popValue();

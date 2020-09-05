@@ -1,3 +1,5 @@
 FROM openjdk:8-jdk
-ADD target/nokia-stack-lifo-0.0.1-SNAPSHOT.jar
+COPY nokia-stack-lifo.jar /target/nokia-stack-lifo.jar
+ADD target/nokia-stack-lifo.jar nokia-stack-lifo.jar
 EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "nokia-stack-lifo.jar"]
